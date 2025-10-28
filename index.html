@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 8 - JavaScript Básico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <head>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code"></i> Laboratorio 8: JavaScript Básico</h1>
+            <p class="subtitle">Universidad Tecnológica de Panamá - Facultad de Ingeniería de Sistemas</p>
+            <p class="subtitle">Desarrollo de Software V (8400)</p>
+        </header>
+        
+        <div class="problems-container">
+            <!-- Problema 1: Suma de tres valores -->
+            <div class="problem-card">
+                <div class="card-header">
+                    <h2 class="problem-title"><span class="problem-number">1</span> Suma de tres valores</h2>
+                    <button class="clear-btn" onclick="clearInputs('num1', 'num2', 'num3', 'resultadoSuma')"><i class="fas fa-eraser"></i> Limpiar</button>
+                </div>
+                <p>Ingrese tres números para calcular su suma.</p>
+                <div class="input-group">
+                    <label for="num1"><i class="fas fa-hashtag"></i> Primer número:</label>
+                    <input type="number" id="num1" placeholder="Ingrese un número">
+                </div>
+                <div class="input-group">
+                    <label for="num2"><i class="fas fa-hashtag"></i> Segundo número:</label>
+                    <input type="number" id="num2" placeholder="Ingrese un número">
+                </div>
+                <div class="input-group">
+                    <label for="num3"><i class="fas fa-hashtag"></i> Tercer número:</label>
+                    <input type="number" id="num3" placeholder="Ingrese un número">
+                </div>
+                <button onclick="calcularSuma()"><i class="fas fa-calculator"></i> Calcular Suma</button>
+                <div class="result" id="resultadoSuma">El resultado aparecerá aquí...</div>
+            </div>
+            
+            <!-- Problema 2: Cuadrado de un número -->
+            <div class="problem-card">
+                <div class="card-header">
+                    <h2 class="problem-title"><span class="problem-number">2</span> Cuadrado de un número</h2>
+                    <button class="clear-btn" onclick="clearInputs('numeroCuadrado', '', '', 'resultadoCuadrado')"><i class="fas fa-eraser"></i> Limpiar</button>
+                </div>
+                <p>Ingrese un número para calcular su cuadrado.</p>
+                <div class="input-group">
+                    <label for="numeroCuadrado"><i class="fas fa-square-root-alt"></i> Número:</label>
+                    <input type="number" id="numeroCuadrado" placeholder="Ingrese un número">
+                </div>
+                <button onclick="calcularCuadrado()"><i class="fas fa-superscript"></i> Calcular Cuadrado</button>
+                <div class="result" id="resultadoCuadrado">El resultado aparecerá aquí...</div>
+            </div>
+            
+            <!-- Problema 3: Promedio de calificaciones -->
+            <div class="problem-card">
+                <div class="card-header">
+                    <h2 class="problem-title"><span class="problem-number">3</span> Promedio de calificaciones</h2>
+                    <button class="clear-btn" onclick="clearInputs('nombreEstudiante', 'nota1', 'nota2', 'nota3', 'resultadoPromedio')"><i class="fas fa-eraser"></i> Limpiar</button>
+                </div>
+                <p>Ingrese el nombre del estudiante y sus tres calificaciones.</p>
+                <div class="input-group">
+                    <label for="nombreEstudiante"><i class="fas fa-user-graduate"></i> Nombre del estudiante:</label>
+                    <input type="text" id="nombreEstudiante" placeholder="Ingrese el nombre">
+                </div>
+                <div class="input-group">
+                    <label for="nota1"><i class="fas fa-file-alt"></i> Primera calificación:</label>
+                    <input type="number" id="nota1" placeholder="Ingrese la calificación" min="0" max="20" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="nota2"><i class="fas fa-file-alt"></i> Segunda calificación:</label>
+                    <input type="number" id="nota2" placeholder="Ingrese la calificación" min="0" max="20" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="nota3"><i class="fas fa-file-alt"></i> Tercera calificación:</label>
+                    <input type="number" id="nota3" placeholder="Ingrese la calificación" min="0" max="20" step="0.01">
+                </div>
+                <button onclick="calcularPromedio()"><i class="fas fa-chart-line"></i> Calcular Promedio</button>
+                <div class="result" id="resultadoPromedio">El resultado aparecerá aquí...</div>
+            </div>
+            
+            <!-- Problema 4: Conversión de unidades -->
+            <div class="problem-card">
+                <div class="card-header">
+                    <h2 class="problem-title"><span class="problem-number">4</span> Conversión de unidades (metros)</h2>
+                    <button class="clear-btn" onclick="clearInputs('metros', '', '', 'resultadoConversion')"><i class="fas fa-eraser"></i> Limpiar</button>
+                </div>
+                <p>Ingrese un valor en metros para convertirlo a centímetros y kilómetros.</p>
+                <div class="input-group">
+                    <label for="metros"><i class="fas fa-ruler"></i> Valor en metros:</label>
+                    <input type="number" id="metros" placeholder="Ingrese valor en metros">
+                </div>
+                <button onclick="convertirUnidades()"><i class="fas fa-exchange-alt"></i> Convertir Unidades</button>
+                <div class="result" id="resultadoConversion">El resultado aparecerá aquí...</div>
+            </div>
+            
+            <!-- Problema 5: Comparación de dos valores -->
+            <div class="problem-card">
+                <div class="card-header">
+                    <h2 class="problem-title"><span class="problem-number">5</span> Comparación de dos valores</h2>
+                    <button class="clear-btn" onclick="clearInputs('valor1', 'valor2', '', 'resultadoComparacion')"><i class="fas fa-eraser"></i> Limpiar</button>
+                </div>
+                <p>Ingrese dos números para compararlos y encontrar su diferencia.</p>
+                <div class="input-group">
+                    <label for="valor1"><i class="fas fa-sort-numeric-up"></i> Primer número:</label>
+                    <input type="number" id="valor1" placeholder="Ingrese un número">
+                </div>
+                <div class="input-group">
+                    <label for="valor2"><i class="fas fa-sort-numeric-down"></i> Segundo número:</label>
+                    <input type="number" id="valor2" placeholder="Ingrese un número">
+                </div>
+                <button onclick="compararValores()"><i class="fas fa-balance-scale"></i> Comparar Valores</button>
+                <div class="result" id="resultadoComparacion">El resultado aparecerá aquí...</div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-laptop-code"></i> Laboratorio 8 - JavaScript Básico
+                </div>
+                <div>
+                    Desarrollado para el Laboratorio 8 de Desarrollo de Software V - UTP
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-envelope"></i> Contacto</a>
+                    <a href="#"><i class="fas fa-info-circle"></i> Información</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // CONSTANTES GLOBALES
+        const FACTOR_CENTIMETROS = 100; // Factor de conversión de metros a centímetros
+        const FACTOR_KILOMETROS = 0.001; // Factor de conversión de metros a kilómetros
+        const CANTIDAD_NOTAS = 3; // Cantidad de notas para calcular el promedio
+        
+        // Función para limpiar campos de entrada
+        function clearInputs(...ids) {
+            ids.forEach(id => {
+                if (id && document.getElementById(id)) {
+                    if (id.startsWith('resultado')) {
+                        document.getElementById(id).textContent = 'El resultado aparecerá aquí...';
+                        document.getElementById(id).classList.remove('highlight');
+                    } else {
+                        document.getElementById(id).value = '';
+                    }
+                }
+            });
+        }
+        
+        // Función para resaltar resultados
+        function highlightResult(elementId) {
+            const element = document.getElementById(elementId);
+            element.classList.add('highlight');
+            setTimeout(() => {
+                element.classList.remove('highlight');
+            }, 3000);
+        }
+        
+        // Problema 1: Suma de tres valores
+        function calcularSuma() {
+            // CONSTANTES para los números a sumar (según el problema)
+            const NUMERO1 = parseFloat(document.getElementById('num1').value) || 0;
+            const NUMERO2 = parseFloat(document.getElementById('num2').value) || 0;
+            const NUMERO3 = parseFloat(document.getElementById('num3').value) || 0;
+            
+            // Calcular la suma
+            const SUMA_TOTAL = NUMERO1 + NUMERO2 + NUMERO3;
+            
+            // Mostrar el resultado
+            document.getElementById('resultadoSuma').textContent = 
+                `La suma de los valores ingresados es: ${SUMA_TOTAL}`;
+            highlightResult('resultadoSuma');
+        }
+        
+        // Problema 2: Cuadrado de un número
+        function calcularCuadrado() {
+            // Obtener el valor del campo de entrada
+            const NUMERO = parseFloat(document.getElementById('numeroCuadrado').value);
+            
+            // Verificar si se ingresó un número válido
+            if (isNaN(NUMERO)) {
+                document.getElementById('resultadoCuadrado').textContent = 
+                    'Por favor, ingrese un número válido.';
+                return;
+            }
+            
+            // Calcular el cuadrado
+            const RESULTADO_CUADRADO = NUMERO * NUMERO;
+            
+            // Mostrar el resultado
+            document.getElementById('resultadoCuadrado').textContent = 
+                `El cuadrado de ${NUMERO} es: ${RESULTADO_CUADRADO}`;
+            highlightResult('resultadoCuadrado');
+        }
+        
+        // Problema 3: Promedio de calificaciones
+        function calcularPromedio() {
+            // Obtener los valores de los campos de entrada
+            const NOMBRE_ESTUDIANTE = document.getElementById('nombreEstudiante').value;
+            const NOTA_1 = parseFloat(document.getElementById('nota1').value);
+            const NOTA_2 = parseFloat(document.getElementById('nota2').value);
+            const NOTA_3 = parseFloat(document.getElementById('nota3').value);
+            
+            // Verificar si se ingresaron todos los datos
+            if (!NOMBRE_ESTUDIANTE || isNaN(NOTA_1) || isNaN(NOTA_2) || isNaN(NOTA_3)) {
+                document.getElementById('resultadoPromedio').textContent = 
+                    'Por favor, complete todos los campos correctamente.';
+                return;
+            }
+            
+            // Calcular el promedio usando la constante CANTIDAD_NOTAS
+            const PROMEDIO_FINAL = (NOTA_1 + NOTA_2 + NOTA_3) / CANTIDAD_NOTAS;
+            
+            // Mostrar el resultado con dos decimales
+            document.getElementById('resultadoPromedio').textContent = 
+                `El promedio de ${NOMBRE_ESTUDIANTE} es: ${PROMEDIO_FINAL.toFixed(2)} puntos`;
+            highlightResult('resultadoPromedio');
+        }
+        
+        // Problema 4: Conversión de unidades (metros)
+        function convertirUnidades() {
+            // Obtener el valor en metros
+            const VALOR_METROS = parseFloat(document.getElementById('metros').value);
+            
+            // Verificar si se ingresó un valor válido
+            if (isNaN(VALOR_METROS)) {
+                document.getElementById('resultadoConversion').textContent = 
+                    'Por favor, ingrese un valor válido en metros.';
+                return;
+            }
+            
+            // Realizar las conversiones usando las constantes globales
+            const CENTIMETROS = VALOR_METROS * FACTOR_CENTIMETROS;
+            const KILOMETROS = VALOR_METROS * FACTOR_KILOMETROS;
+            
+            // Formatear los números con separadores de miles
+            const METROS_FORMATEADOS = VALOR_METROS.toLocaleString();
+            const CENTIMETROS_FORMATEADOS = CENTIMETROS.toLocaleString();
+            
+            // Mostrar el resultado
+            document.getElementById('resultadoConversion').textContent = 
+                `${METROS_FORMATEADOS} metros equivalen a ${CENTIMETROS_FORMATEADOS} centímetros y ${KILOMETROS} kilómetros.`;
+            highlightResult('resultadoConversion');
+        }
+        
+        // Problema 5: Comparación de dos valores
+        function compararValores() {
+            // Obtener los valores de los campos de entrada
+            const VALOR_1 = parseFloat(document.getElementById('valor1').value);
+            const VALOR_2 = parseFloat(document.getElementById('valor2').value);
+            
+            // Verificar si se ingresaron números válidos
+            if (isNaN(VALOR_1) || isNaN(VALOR_2)) {
+                document.getElementById('resultadoComparacion').textContent = 
+                    'Por favor, ingrese dos números válidos.';
+                return;
+            }
+            
+            // Determinar el mayor, el menor y la diferencia
+            const MAYOR = Math.max(VALOR_1, VALOR_2);
+            const MENOR = Math.min(VALOR_1, VALOR_2);
+            const DIFERENCIA = MAYOR - MENOR;
+            
+            // Mostrar el resultado
+            document.getElementById('resultadoComparacion').textContent = 
+                `El número mayor es ${MAYOR}, el menor es ${MENOR}, y su diferencia es ${DIFERENCIA}.`;
+            highlightResult('resultadoComparacion');
+        }
+    </script>
+</body>
+</html>
